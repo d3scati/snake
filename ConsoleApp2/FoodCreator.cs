@@ -8,22 +8,29 @@ namespace Exercise3
 {
     class FoodCreator
     {
-        int mapWight;
+        int mapWidth;
         int mapHeight;
         char symb;
         Random random = new Random();
-        public FoodCreator(int mapWight, int mapHeight, char symb)
+        public FoodCreator(int mapWidth, int mapHeight, char symb)
         {
-            this.mapWight = mapWight;
+            this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
             this.symb = symb;
         }
-        public Point CreateFood()
+        public Point CreateFood(Walls walls)
         {
-            int x = random.Next(2, mapWight - 2);
-            int y = random.Next(2, mapHeight - 2);
-            return new Point(x, y, symb);
+            while (true)
+            {
+                int x = random.Next(0, mapWidth);
+                int y = random.Next(0, mapHeight);
 
+                // Проверяем, не находится ли новая точка для еды внутри стен
+                if (!walls.IsInsideWalls(new Point(x, y,symb)))
+                {
+                    return new Point(x, y, symb);
+                }
+            }
         }
     }
 }

@@ -17,5 +17,11 @@ namespace Exercise3
                 pList.Add(point);
             }
         }
+        public override void Draw()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            base.Draw();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+        }
     }
 }
