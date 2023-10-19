@@ -49,6 +49,38 @@ namespace Exercise3
             nextPoint.Move(1, direction); // сдвиг точки по направлению direction
             return nextPoint;
         }
+        public void HandleKey(ConsoleKey key) // Изменение направления змейки
+        {
+            if (key == ConsoleKey.LeftArrow)
+            {
+                direction = Direction.LEFT;
+            }
+            if (key == ConsoleKey.RightArrow)
+            {
+                direction = Direction.RIGHT;
+            }
+            if (key == ConsoleKey.UpArrow)
+            {
+                direction = Direction.UP;
+            }
+            if (key == ConsoleKey.DownArrow)
+            {
+                direction = Direction.DOWN;
+            }
+        }
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.symb = head.symb;
+                pList.Add(food);
+                return true;
+            }
+            else
+                return false;
+        }
+
     }
 
 }

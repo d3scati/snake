@@ -40,14 +40,18 @@ namespace Exercise3
             else if (direction == Direction.LEFT)
             { x = x - offset; }
             else if (direction == Direction.UP)
-            { y = y + offset; }
-            else if (direction == Direction.DOWN)
             { y = y - offset; }
+            else if (direction == Direction.DOWN)
+            { y = y + offset; }
         }
         public void Clear()
         {
             symb = ' ';
             Draw();
+        }
+        public bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
         }
 
     }
