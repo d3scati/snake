@@ -21,12 +21,10 @@ namespace Exercise3
             //VerticalLine line3 = new VerticalLine(0, 29, 119, '+');
 
             Walls walls = new Walls(120, 30);
-            walls.Draw();
 
             Point point = new Point(4,10,'*');
             Figure fSnake = new Snake(point, 4, Direction.DOWN);
             Snake snake = (Snake)fSnake;
-            fSnake.Draw();
 
             //List<Figure> figures = new List<Figure>();
             //figures.Add(line);
@@ -42,8 +40,16 @@ namespace Exercise3
 
             FoodCreator foodCreator = new FoodCreator(120, 30, '$');
             Point food = foodCreator.CreateFood(walls);
-            food.Draw();
 
+
+            List<Figure> figures = new List<Figure>();
+            figures.Add(walls);
+            figures.Add(fSnake);
+            figures.Add(food);
+            foreach (var f in figures)
+            {
+                f.Draw();
+            }
 
             while (true)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise3
 {
-    internal class Point
+    internal class Point:Figure
     {
         public int x;
         public int y;
@@ -28,7 +28,7 @@ namespace Exercise3
             symb = point.symb;
         }
 
-        public void Draw()
+        public override void Draw()
         {
             Console.SetCursorPosition(x,y);
             Console.Write(symb);
@@ -49,7 +49,7 @@ namespace Exercise3
             symb = ' ';
             Draw();
         }
-        public bool IsHit(Point p)
+        public new bool IsHit(Point p)
         {
             return p.x == this.x && p.y == this.y;
         }

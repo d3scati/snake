@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise3
 {
-    class FoodCreator
+    class FoodCreator:Figure
     {
         int mapWidth;
         int mapHeight;

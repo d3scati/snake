@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exercise3
 {
-    class Walls
+    class Walls:Figure
     {
         List<Figure> wallList;
         public Walls(int mapWidth, int mapHeight)
@@ -33,14 +33,14 @@ namespace Exercise3
             wallList.Add(rightline);
 
         }
-        public void Draw()
+        public override void Draw()
         {
             foreach (var wall in wallList)
             {
                 wall.Draw();
             }
         }
-        internal bool IsHit(Figure figure)
+        internal new bool IsHit(Figure figure)
         {
             foreach (var wall in wallList)
             {
