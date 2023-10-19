@@ -53,7 +53,7 @@ namespace Exercise3
                     snake.HandleKey(key.Key);
                 }
 
-                Thread.Sleep(50);
+                Thread.Sleep(45);
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood(walls);
